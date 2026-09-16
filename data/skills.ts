@@ -4,32 +4,32 @@ export const skills: SkillCategory[] = [
   {
     category: "Frontend",
     items: [
-      { name: "TypeScript", primary: true },
       { name: "React", primary: true },
-      { name: "Next.js", primary: true },
+      { name: "JavaScript", primary: true },
+      { name: "TypeScript", primary: true },
       { name: "Tailwind CSS", primary: true },
-      { name: "JavaScript", primary: false },
       { name: "HTML", primary: false },
       { name: "CSS", primary: false },
-      { name: "Responsive Design", primary: false },
+      { name: "shadcn/ui", primary: false },
     ],
   },
   {
     category: "Backend",
     items: [
-      { name: "Node.js", primary: true },
-      { name: "APIs REST", primary: true },
-      { name: "Express", primary: false },
-      // TODO: agregar/quitar tecnologías backend reales
+      { name: "Java", primary: true },
+      { name: "Python", primary: true },
+      { name: "Java Swing", primary: false },
+      { name: "C", primary: false },
+      { name: "C++", primary: false },
     ],
   },
   {
     category: "Bases de datos",
     items: [
       { name: "PostgreSQL", primary: true },
-      { name: "Supabase", primary: true },
-      { name: "MySQL", primary: false },
-      { name: "SQL Server", primary: false },
+      { name: "SQL", primary: true },
+      { name: "Supabase", primary: false },
+      { name: "DBeaver", primary: false },
     ],
   },
   {
@@ -37,18 +37,20 @@ export const skills: SkillCategory[] = [
     items: [
       { name: "Git", primary: true },
       { name: "GitHub", primary: true },
-      { name: "Vercel", primary: false },
+      { name: "Docker", primary: true },
       { name: "Cloudflare", primary: false },
-      { name: "Render", primary: false },
-      { name: "Docker", primary: false },
-      { name: "VS Code", primary: false },
+      { name: "Linux", primary: false },
+      { name: "Windows", primary: false },
+      { name: "macOS", primary: false },
+      { name: "Excel", primary: false },
     ],
   },
   {
     category: "Actualmente aprendiendo",
     items: [
-      // TODO: reemplazar con lo que realmente estás aprendiendo ahora
-      { name: "TODO: tecnología en aprendizaje", primary: false },
+      { name: "Inteligencia Artificial", primary: false },
+      { name: "Data Analytics", primary: false },
+      { name: "NVIDIA RAPIDS", primary: false },
     ],
   },
 ];

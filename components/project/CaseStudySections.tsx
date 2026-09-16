@@ -17,7 +17,7 @@ function CaseStudyBlock({
   return (
     <Reveal className="border-t border-border py-12 first:border-t-0 first:pt-0">
       <div className="mb-6 flex items-baseline gap-3">
-        <span className="font-mono text-sm text-accent">{number}</span>
+        <span className="text-sm font-semibold text-accent tabular-nums">{number}</span>
         <h2 className="text-2xl font-semibold text-fg md:text-3xl">{title}</h2>
       </div>
       {children}

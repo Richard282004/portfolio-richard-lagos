@@ -38,23 +38,27 @@ export function Navbar() {
                 key={item.id}
                 href={`#${item.id}`}
                 className={cn(
-                  "relative text-sm text-fg-muted transition-colors hover:text-fg",
+                  "group relative py-1 text-sm text-fg-muted transition-colors duration-300 hover:text-fg",
                   activeId === item.id && "text-fg"
                 )}
               >
                 {item.label}
-                {activeId === item.id && (
-                  <span className="absolute -bottom-1.5 left-0 h-px w-full bg-accent" aria-hidden="true" />
-                )}
+                <span
+                  className={cn(
+                    "absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100",
+                    activeId === item.id && "scale-x-100"
+                  )}
+                  aria-hidden="true"
+                />
               </a>
             ))}
           </nav>
 
           <div className="hidden items-center gap-4 md:flex">
-            <a href={profile.socials.github} {...externalLinkProps} aria-label="GitHub" className="text-fg-muted hover:text-fg">
+            <a href={profile.socials.github} {...externalLinkProps} aria-label="GitHub" className="text-fg-muted transition-all duration-300 hover:scale-110 hover:text-fg">
               <GithubIcon className="size-4" />
             </a>
-            <a href={profile.socials.linkedin} {...externalLinkProps} aria-label="LinkedIn" className="text-fg-muted hover:text-fg">
+            <a href={profile.socials.linkedin} {...externalLinkProps} aria-label="LinkedIn" className="text-fg-muted transition-all duration-300 hover:scale-110 hover:text-fg">
               <LinkedinIcon className="size-4" />
             </a>
             <ThemeToggle />
@@ -66,7 +70,7 @@ export function Navbar() {
               type="button"
               onClick={() => setMobileOpen(true)}
               aria-label="Abrir menú"
-              className="flex size-9 items-center justify-center rounded-full border border-border text-fg"
+              className="flex size-9 items-center justify-center rounded-full border border-border text-fg transition-all duration-300 hover:scale-110 hover:border-accent/50"
             >
               <Menu className="size-4" />
             </button>

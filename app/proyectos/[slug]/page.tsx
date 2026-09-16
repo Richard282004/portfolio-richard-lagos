@@ -40,7 +40,7 @@ export default async function ProjectCaseStudyPage({
     <section className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-3xl">
         <div className="mb-4 flex flex-wrap items-center gap-3">
-          <span className="font-mono text-sm text-fg-muted">{project.year}</span>
+          <span className="text-sm text-fg-muted">{project.year}</span>
           <ProjectStatusBadge status={project.status} label={project.statusLabel} />
         </div>
         <h1 className="text-4xl font-semibold tracking-tight text-fg md:text-5xl">

@@ -6,6 +6,7 @@ import { profile } from "@/data/profile";
 import { externalLinkProps } from "@/utils/external-link";
 import { GithubIcon } from "@/components/icons/GithubIcon";
 import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
+import { fadeUp, stagger } from "@/utils/motion-variants";
 
 const navItems = [
   { id: "about", label: "Sobre mí" },
@@ -37,28 +38,34 @@ export function MobileMenu({
               type="button"
               onClick={onClose}
               aria-label="Cerrar menú"
-              className="flex size-9 items-center justify-center rounded-full border border-border text-fg"
+              className="flex size-9 items-center justify-center rounded-full border border-border text-fg transition-all duration-300 hover:scale-110 hover:border-accent/50"
             >
               <X className="size-4" />
             </button>
           </div>
-          <nav className="flex flex-col items-center gap-8 px-6 pt-16">
+          <motion.nav
+            className="flex flex-col items-center gap-8 px-6 pt-16"
+            initial="hidden"
+            animate="visible"
+            variants={stagger(0.06, 0.1)}
+          >
             {navItems.map((item) => (
-              <a
+              <motion.a
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={onClose}
-                className="text-2xl font-medium text-fg"
+                variants={fadeUp}
+                className="text-2xl font-medium text-fg transition-transform duration-300 active:scale-95"
               >
                 {item.label}
-              </a>
+              </motion.a>
             ))}
-          </nav>
+          </motion.nav>
           <div className="mt-12 flex items-center justify-center gap-6">
-            <a href={profile.socials.github} {...externalLinkProps} aria-label="GitHub" className="text-fg-muted hover:text-fg">
+            <a href={profile.socials.github} {...externalLinkProps} aria-label="GitHub" className="text-fg-muted transition-all duration-300 hover:scale-110 hover:text-fg">
               <GithubIcon className="size-5" />
             </a>
-            <a href={profile.socials.linkedin} {...externalLinkProps} aria-label="LinkedIn" className="text-fg-muted hover:text-fg">
+            <a href={profile.socials.linkedin} {...externalLinkProps} aria-label="LinkedIn" className="text-fg-muted transition-all duration-300 hover:scale-110 hover:text-fg">
               <LinkedinIcon className="size-5" />
             </a>
           </div>

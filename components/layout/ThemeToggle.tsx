@@ -21,7 +21,7 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
-      className="flex size-9 items-center justify-center rounded-full border border-border text-fg-muted transition-colors hover:text-fg"
+      className="flex size-9 items-center justify-center rounded-full border border-border text-fg-muted transition-all duration-300 hover:scale-110 hover:border-accent/50 hover:text-fg active:scale-95"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.span

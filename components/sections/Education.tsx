@@ -9,13 +9,10 @@ export function Education() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading number="05" title="Educación" subtitle="Formación académica" />
 
-        <div className="space-y-8">
+        <div className="space-y-10">
           {education.map((item) => (
-            <Reveal
-              key={item.institution}
-              className="rounded-2xl border border-border bg-surface/40 p-6 md:p-8"
-            >
-              <p className="font-mono text-sm text-accent">{item.period}</p>
+            <Reveal key={item.institution}>
+              <p className="text-sm font-medium text-accent">{item.period}</p>
               <h3 className="mt-1 text-xl font-semibold text-fg">{item.degree}</h3>
               <p className="text-fg-muted">{item.institution}</p>
               <p className="mt-3 max-w-2xl text-fg-muted">{item.description}</p>
@@ -29,14 +26,13 @@ export function Education() {
         </div>
 
         {certifications.length > 0 && (
-          <Reveal className="mt-10">
-            <p className="font-mono text-xs uppercase tracking-wide text-fg-muted">
-              Certificaciones y cursos
-            </p>
+          <Reveal className="mt-12 border-t border-border pt-8">
+            <p className="text-sm font-medium text-fg-muted">Certificaciones y cursos</p>
             <ul className="mt-3 space-y-2">
               {certifications.map((cert) => (
                 <li key={cert.name} className="text-fg-muted">
-                  {cert.name} — {cert.issuer} ({cert.year})
+                  {cert.name}, {cert.issuer}
+                  {cert.year && ` (${cert.year})`}
                 </li>
               ))}
             </ul>

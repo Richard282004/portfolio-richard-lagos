@@ -3,145 +3,131 @@ import type { Project } from "./types";
 export const projects: Project[] = [
   {
     slug: "ecommerce",
-    name: "TODO: Nombre de la tienda",
-    year: 2026, // TODO: año real de desarrollo
+    name: "MilaLoop",
+    year: 2026,
     featured: true,
     layout: "image-left",
     description:
-      "Plataforma e-commerce desarrollada para gestionar catálogo de productos, navegación, carrito de compras y experiencia de compra online.",
+      "Tienda e-commerce de llaveros y peluches tejidos a mano, con catálogo, favoritos, seguimiento de pedidos y pago seguro.",
     problem:
-      "TODO: qué problema de negocio o de usuario resuelve esta tienda (ej. vender productos online sin depender de una plataforma de terceros).",
+      "Un negocio artesanal de crochet necesitaba un canal de venta online propio para mostrar su catálogo y vender sin depender de redes sociales o marketplaces de terceros.",
     solution:
-      "TODO: cómo se diseñó la plataforma para resolver ese problema (catálogo dinámico, carrito propio, checkout, panel de administración, etc).",
+      "Tienda construida con React y shadcn/ui sobre Tailwind CSS, con Supabase como backend (base de datos y autenticación) y desplegada como Cloudflare Worker, incluyendo catálogo con filtros por categoría, favoritos, seguimiento de pedidos y pago con Visa, Amex y Mercado Pago.",
     features: [
-      "Responsive (desktop y mobile)",
-      "Conexión con base de datos",
-      "Catálogo dinámico de productos",
-      "Carrito de compras",
-      "Filtros y búsqueda",
       "Autenticación de usuarios",
-      "Panel de administración",
-      // TODO: agregar/quitar funcionalidades reales
+      "Catálogo con filtros por categoría",
+      "Favoritos / lista de deseos",
+      "Seguimiento de pedidos",
+      "Pago seguro (Visa, Amex, Mercado Pago)",
+      "Envíos a todo Chile",
+      "Responsive (desktop y mobile)",
     ],
-    stack: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Supabase",
-      "Cloudflare",
-      // TODO: agregar otras tecnologías reales usadas
-    ],
+    stack: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase", "Cloudflare Workers"],
     architecture:
-      "TODO: descripción breve de la arquitectura (ej. SPA en React consumiendo Supabase directamente, hosting estático en Cloudflare Pages).",
+      "SPA en React consumiendo Supabase (Postgres + auth) directamente desde el cliente, desplegada como Cloudflare Worker con Wrangler.",
     status: "production",
     statusLabel: "Proyecto desplegado en producción",
-    screenshotSrc: "/images/projects/ecommerce-desktop.png", // TODO: subir screenshot real
-    screenshotMobileSrc: "/images/projects/ecommerce-mobile.png", // TODO: subir screenshot real, o null si no existe
-    isPlaceholderImage: true,
-    demoUrl: null, // TODO: "https://tu-tienda.com" — al completarlo se activa el botón "Visitar tienda"
-    repoUrl: null, // TODO: "https://github.com/tu-usuario/tu-tienda"
-    isRepoPrivate: false,
+    screenshotSrc: "/images/projects/ecommerce-desktop.jpg",
+    screenshotMobileSrc: null,
+    isPlaceholderImage: false,
+    demoUrl: "https://tienda-react-demo.richardlagos2.workers.dev/#inicio",
+    repoUrl: null,
+    isRepoPrivate: true,
     caseStudy: null,
   },
   {
     slug: "erp",
-    name: "TODO: Nombre del ERP",
-    year: 2026, // TODO: año real de desarrollo
+    name: "ERP/POS de Gestión de Ventas",
+    year: 2026,
     featured: true,
     layout: "image-right",
     description:
-      "Sistema de gestión tipo Mini ERP / POS desarrollado para centralizar operaciones de negocio, administrar información y facilitar procesos internos desde una plataforma web.",
+      "Sistema de gestión de ventas, pedidos, productos, inventario y usuarios, con base de datos PostgreSQL y entorno de desarrollo en Docker.",
     problem:
-      "TODO: qué problema operativo resuelve el sistema (ej. un negocio que gestionaba ventas e inventario manualmente).",
+      "Negocios pequeños que gestionan ventas, pedidos, productos e inventario de forma manual, sin visibilidad centralizada ni trazabilidad de las operaciones.",
     solution:
-      "TODO: cómo fue diseñada la aplicación para resolverlo (dashboard centralizado, control de inventario y ventas en tiempo real, etc).",
+      "Sistema con frontend en React y lógica de backend propia, modelando productos, pedidos, inventario y usuarios en PostgreSQL con relaciones y restricciones de integridad, incluyendo control de pagos y operaciones. Entorno de desarrollo containerizado con Docker.",
     features: [
-      "Autenticación de usuarios",
-      "Dashboard",
-      "Gestión de productos",
-      "Gestión de ventas",
-      "Inventario",
-      "Clientes",
-      "Reportes",
-      "Administración",
-      // TODO: agregar/quitar funcionalidades reales
+      "Gestión de ventas y pedidos",
+      "Gestión de productos e inventario",
+      "Gestión de usuarios",
+      "Control de pagos y operaciones",
     ],
-    stack: [
-      "React",
-      "TypeScript",
-      "Supabase",
-      "PostgreSQL",
-      "Render",
-      "Cloudflare",
-      "API / Backend",
-      // TODO: agregar otras tecnologías reales usadas
-    ],
-    architecture:
-      "Frontend → Cloudflare → Backend / API → Render → Supabase → PostgreSQL", // TODO: ajustar al flujo real
-    status: "private",
-    statusLabel: "Acceso privado",
-    screenshotSrc: "/images/projects/erp-dashboard.png", // TODO: subir screenshot real del dashboard
-    screenshotMobileSrc: "/images/projects/erp-login.png", // TODO: subir screenshot real del login
-    isPlaceholderImage: true,
+    stack: ["React", "JavaScript", "Python", "PostgreSQL", "SQL", "Docker", "Git/GitHub"],
+    architecture: "Frontend en React → lógica de backend → PostgreSQL, en entorno Docker.",
+    status: "development",
+    statusLabel: "En desarrollo",
+    screenshotSrc: "/images/projects/Pos-Login.png", // /Users/nskss07/Developer/PaginaRichardPF/public/images/projects/Pos-Login.png
+    screenshotMobileSrc: "/images/projects/Pos-Login.png",
+    isPlaceholderImage: false,
     demoUrl: null,
-    repoUrl: null, // TODO: "https://github.com/tu-usuario/tu-erp" si el repo es público; si es privado, dejar null
+    repoUrl: null,
     isRepoPrivate: true,
     caseStudy: {
       problem:
-        "TODO: describir en detalle el problema que motivó construir este sistema.",
+        "Negocios pequeños que gestionan ventas, pedidos, productos e inventario de forma manual, sin visibilidad centralizada ni trazabilidad de las operaciones.",
       solution:
-        "TODO: describir el enfoque de solución: qué decisiones de diseño se tomaron y por qué.",
-      architectureFlow: [
-        "Usuario",
-        "Frontend",
-        "Cloudflare",
-        "Backend / API",
-        "Render",
-        "Supabase",
-        "PostgreSQL",
-      ], // TODO: ajustar al flujo real de arquitectura del proyecto
+        "Frontend en React y lógica de backend propia, modelando productos, pedidos, inventario y usuarios en PostgreSQL con relaciones y restricciones de integridad en SQL, incluyendo control de pagos y operaciones. Entorno de desarrollo containerizado con Docker.",
+      architectureFlow: ["Usuario", "Frontend (React)", "Lógica de backend", "PostgreSQL"],
       modules: [
         {
-          title: "Dashboard",
-          description: "TODO: qué muestra el dashboard principal.",
-          isPlaceholderImage: true,
-          imageSrc: "/images/projects/erp-dashboard.png",
-        },
-        {
-          title: "Gestión de productos",
-          description: "TODO: cómo funciona el módulo de productos.",
-          isPlaceholderImage: true,
-          imageSrc: "/images/projects/erp-productos.png",
-        },
-        {
-          title: "Gestión de ventas",
-          description: "TODO: cómo funciona el módulo de ventas.",
+          title: "Gestión de ventas y pedidos",
+          description: "Registro y control de ventas y pedidos con datos relacionados en PostgreSQL.",
           isPlaceholderImage: true,
           imageSrc: "/images/projects/erp-ventas.png",
         },
         {
-          title: "Inventario",
-          description: "TODO: cómo funciona el módulo de inventario.",
+          title: "Gestión de productos e inventario",
+          description: "Catálogo de productos con control de stock e inventario.",
           isPlaceholderImage: true,
-          imageSrc: "/images/projects/erp-inventario.png",
+          imageSrc: "/images/projects/erp-productos.png",
         },
-      ], // TODO: agregar/quitar módulos reales del sistema
+        {
+          title: "Gestión de usuarios",
+          description: "Administración de usuarios del sistema.",
+          isPlaceholderImage: true,
+          imageSrc: "/images/projects/erp-usuarios.png",
+        },
+      ],
       challenges: [
-        "Autenticación",
-        "Conexión frontend/backend",
-        "Conexión con base de datos",
-        "Manejo de sesiones",
-        "Despliegue",
-        "Seguridad",
-        "Consumo de API",
         "Modelado de base de datos",
-      ], // TODO: dejar solo los desafíos técnicos reales que enfrentaste
+        "Relaciones y restricciones de integridad en SQL",
+        "Control de pagos y operaciones",
+        "Entorno de desarrollo con Docker",
+      ],
       result:
-        "TODO: qué se logró construir y qué procesos de negocio puede resolver el sistema hoy.",
+        "Sistema en desarrollo activo que centraliza ventas, pedidos, productos, inventario y usuarios de un negocio pequeño, con datos modelados en PostgreSQL siguiendo relaciones e integridad referencial.",
     },
   },
-  // TODO: agregar más proyectos aquí siguiendo la misma estructura.
-  // featured: false para que aparezcan en la grilla general en vez de como card destacada.
+  {
+    slug: "generador-rutinas",
+    name: "Generador de Rutinas de Entrenamiento",
+    year: 2026,
+    featured: false,
+    layout: "image-left",
+    description:
+      "Aplicación de escritorio en Java Swing para modelar clientes, ejercicios y generar rutinas de entrenamiento.",
+    problem:
+      "Proyecto académico para practicar modelamiento de datos y programación orientada a objetos con una aplicación de escritorio real.",
+    solution:
+      "Aplicación en Java Swing con clases para clientes, ejercicios y rutinas, procesamiento de archivos CSV y lógica de generación de rutinas.",
+    features: [
+      "Modelamiento de clientes y ejercicios",
+      "Generación de rutinas de entrenamiento",
+      "Procesamiento de archivos CSV",
+    ],
+    stack: ["Java", "Java Swing", "POO"],
+    architecture: "Aplicación de escritorio en Java Swing con lectura/escritura de archivos CSV.",
+    status: "functional",
+    statusLabel: "Proyecto funcional",
+    screenshotSrc: "/images/projects/rutinas-desktop.png",
+    screenshotMobileSrc: null,
+    isPlaceholderImage: true,
+    demoUrl: null,
+    repoUrl: null,
+    isRepoPrivate: false,
+    caseStudy: null,
+  },
 ];
 
 export function getProjectBySlug(slug: string) {

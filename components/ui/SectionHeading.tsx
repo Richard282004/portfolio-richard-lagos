@@ -7,15 +7,17 @@ export function SectionHeading({
 }: {
   number: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }) {
   return (
-    <Reveal className="mb-12 md:mb-16">
-      <span className="font-mono text-sm text-accent">{number}</span>
-      <h2 className="mt-2 text-3xl md:text-5xl font-semibold tracking-tight text-fg">
-        {title}
-      </h2>
-      <p className="mt-3 text-fg-muted">{subtitle}</p>
+    <Reveal className="mb-12 flex items-start gap-5 md:mb-16 md:gap-8">
+      <span className="select-none text-3xl font-semibold text-accent/30 tabular-nums md:text-5xl">
+        {number}
+      </span>
+      <div>
+        <h2 className="text-3xl font-semibold tracking-tight text-fg md:text-5xl">{title}</h2>
+        {subtitle && <p className="mt-3 text-fg-muted">{subtitle}</p>}
+      </div>
     </Reveal>
   );
 }

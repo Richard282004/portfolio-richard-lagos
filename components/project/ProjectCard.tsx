@@ -1,5 +1,8 @@
+"use client";
+
+import type { MouseEvent } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import type { Project } from "@/data/types";
 import { Reveal } from "@/components/ui/Reveal";
 import { Tag } from "@/components/ui/Tag";
@@ -7,17 +10,41 @@ import { ExternalLink } from "@/components/ui/ExternalLink";
 import { ProjectScreenshot } from "./ProjectScreenshot";
 import { ProjectStatusBadge } from "./ProjectStatusBadge";
 import { RepoLink } from "./RepoLink";
+import { cardHover } from "@/utils/motion-variants";
 import { cn } from "@/utils/cn";
 
 export function ProjectCard({ project }: { project: Project }) {
   const imageFirst = project.layout === "image-left";
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const spotlight = useMotionTemplate`radial-gradient(480px circle at ${mouseX}px ${mouseY}px, var(--color-accent), transparent 70%)`;
+
+  function handleMouseMove(event: MouseEvent<HTMLElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    mouseX.set(event.clientX - rect.left);
+    mouseY.set(event.clientY - rect.top);
+  }
+
   return (
     <Reveal>
-      <article className="group rounded-3xl border border-border bg-surface/40 p-6 transition-colors hover:border-accent/40 md:p-10">
+      <motion.article
+        onMouseMove={handleMouseMove}
+        initial="rest"
+        whileHover="hover"
+        animate="rest"
+        variants={cardHover}
+        className="group relative overflow-hidden rounded-3xl border border-border bg-surface/40 p-6 transition-[border-color,box-shadow] duration-300 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5 md:p-10"
+      >
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-[0.06]"
+          style={{ background: spotlight }}
+        />
+
         <div
           className={cn(
-            "grid items-center gap-8 md:grid-cols-2 md:gap-12",
+            "relative grid items-center gap-8 md:grid-cols-2 md:gap-12",
             !imageFirst && "md:[&>*:first-child]:order-2"
           )}
         >
@@ -30,7 +57,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
           <div>
             <div className="mb-3 flex flex-wrap items-center gap-3">
-              <span className="font-mono text-sm text-fg-muted">{project.year}</span>
+              <span className="text-sm text-fg-muted">{project.year}</span>
               <ProjectStatusBadge status={project.status} label={project.statusLabel} />
             </div>
 
@@ -45,17 +72,15 @@ export function ProjectCard({ project }: { project: Project }) {
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
               {project.demoUrl ? (
-                <ExternalLink href={project.demoUrl} variant="primary" showIcon={false}>
+                <ExternalLink href={project.demoUrl} variant="primary">
                   Ver página
-                  <ArrowRight className="size-4" aria-hidden="true" />
                 </ExternalLink>
               ) : project.caseStudy ? (
                 <Link
                   href={`/proyectos/${project.slug}`}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-fg transition-opacity hover:opacity-90"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-fg transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
                 >
                   Ver proyecto
-                  <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
               ) : (
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-5 py-2.5 text-sm text-fg-muted">
@@ -66,7 +91,7 @@ export function ProjectCard({ project }: { project: Project }) {
             </div>
           </div>
         </div>
-      </article>
+      </motion.article>
     </Reveal>
   );
 }
