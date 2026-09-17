@@ -30,28 +30,10 @@ export function Contact() {
               ¿Tienes una oportunidad, proyecto o idea en mente? Conversemos.
             </p>
 
-            <div className="mt-8 space-y-6">
-              <p className="inline-flex items-center gap-2 text-fg-muted">
-                <MapPin className="size-4" />
-                {profile.location}
-              </p>
-
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-fg transition-all duration-300 hover:scale-105 hover:opacity-90 active:scale-95"
-              >
-                {justCopied || copied ? (
-                  <>
-                    <Check className="size-4" /> Copiado
-                  </>
-                ) : (
-                  <>
-                    <Copy className="size-4" /> Copiar mi correo
-                  </>
-                )}
-              </button>
-            </div>
+            <p className="mt-8 inline-flex items-center gap-2 text-fg-muted">
+              <MapPin className="size-4" />
+              {profile.location}
+            </p>
           </Reveal>
 
           <Reveal delay={0.08}>
