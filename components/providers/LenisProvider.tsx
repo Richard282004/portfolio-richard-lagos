@@ -1,0 +1,28 @@
+"use client";
+
+import { ReactLenis } from "lenis/react";
+import { useReducedMotion } from "framer-motion";
+import type { ReactNode } from "react";
+
+export function LenisProvider({ children }: { children: ReactNode }) {
+  const reducedMotion = useReducedMotion();
+
+  if (reducedMotion) {
+    return <>{children}</>;
+  }
+
+  return (
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.1,
+        duration: 1.2,
+        anchors: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 1,
+      }}
+    >
+      {children}
+    </ReactLenis>
+  );
+}

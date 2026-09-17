@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { MaskedText } from "./MaskedText";
 
 export function SectionHeading({
   number,
@@ -15,7 +16,9 @@ export function SectionHeading({
         {number}
       </span>
       <div>
-        <h2 className="text-3xl font-semibold tracking-tight text-fg md:text-5xl">{title}</h2>
+        <h2 className="text-3xl font-semibold tracking-tight text-fg md:text-5xl">
+          <MaskedText text={title} viewTrigger wordDelay={0.07} />
+        </h2>
         {subtitle && <p className="mt-3 text-fg-muted">{subtitle}</p>}
       </div>
     </Reveal>

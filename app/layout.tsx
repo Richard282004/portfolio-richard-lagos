@@ -5,6 +5,7 @@ import { Providers } from "@/components/layout/Providers";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { LenisProvider } from "@/components/providers/LenisProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -58,10 +59,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         <Providers>
-          <PageIntro />
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <LenisProvider>
+            <PageIntro />
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </LenisProvider>
         </Providers>
       </body>
     </html>

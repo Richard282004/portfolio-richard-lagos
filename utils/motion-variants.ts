@@ -1,11 +1,21 @@
 import type { Variants } from "framer-motion";
 
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 30, scale: 0.98 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+    scale: 1,
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+export const imageReveal: Variants = {
+  hidden: { clipPath: "inset(0 100% 0 0)", scale: 1.06 },
+  visible: {
+    clipPath: "inset(0 0% 0 0)",
+    scale: 1,
+    transition: { duration: 1.05, ease: [0.16, 1, 0.3, 1] },
   },
 };
 

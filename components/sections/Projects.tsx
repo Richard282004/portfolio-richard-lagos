@@ -11,14 +11,14 @@ export function Projects() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading number="03" title="Proyectos" subtitle="Trabajo seleccionado" />
 
-        <div className="space-y-10">
+        <div className="space-y-16 md:space-y-24">
           {featured.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
 
         {rest.length > 0 && (
-          <div className="mt-10 space-y-10">
+          <div className="mt-16 space-y-16 md:mt-24 md:space-y-24">
             {rest.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
